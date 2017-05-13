@@ -43,7 +43,7 @@ public class Main {
         graphMas.pridetiBriauna(edge24);
         ///
         //System.out.println(graphArr.toString(1));
-        //GraphArr res = KruskalArr.getMinimumumSpanningTree(graphArr);
+        GrafasMas res = KruskalMas.gautiMST(graphMas);
         
         
         
@@ -61,12 +61,12 @@ public class Main {
         grafas.pridetiBriauna(edge24);
         //
 
-        Grafas karkasas = Kruskal.gautiMST(grafas);
+        //Grafas karkasas = Kruskal.gautiMST(grafas);
 
         System.out.println("Start: ");
-        //System.out.println(graphArr);
+        System.out.println(graphMas);
         System.out.println("Result: ");
-        //System.out.println(res);
-        System.out.println(karkasas);
+        System.out.println(res);
+        //System.out.println(karkasas);
     }
 }

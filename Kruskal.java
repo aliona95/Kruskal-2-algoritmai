@@ -19,13 +19,13 @@ public class Kruskal {
 
         for (Briauna briauna: grafas.gautiBriaunas()) {
         	// tikriname ar briaunos virsunes yra skirtinguose setuose
-            if (vertexDisjointSet.findSet(briauna.gautiNuoKur()) != 
-            	vertexDisjointSet.findSet(briauna.gautiIkiKur())) {
+            if (vertexDisjointSet.findSet(briauna.gautiX()) != 
+            	vertexDisjointSet.findSet(briauna.gautiY())) {
             	
                 karkasas.pridetiBriauna(briauna);
                
                 // sujungiame setus ir uzsetiname setui teva, kurio rangas didesnis
-                vertexDisjointSet.union(briauna.gautiNuoKur(), briauna.gautiIkiKur());
+                vertexDisjointSet.union(briauna.gautiX(), briauna.gautiY());
             }
         }
         return karkasas;

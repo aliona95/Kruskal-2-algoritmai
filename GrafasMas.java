@@ -32,6 +32,34 @@ public class GrafasMas {
         return briaunos;
     }
 	
+	public Briauna gautiBriauna(){
+		int skaitliukas = KruskalMas.briaunuSkaitliukas;
+		return this.gautiBriaunas().get(skaitliukas);
+	}
+	
+	public String gautiZymeX(){
+		int skaitliukas = KruskalMas.briaunuSkaitliukas;
+		return this.gautiBriaunas().get(skaitliukas).gautiX().gautiZyme();
+	}
+	
+	public String gautiZymeY(){
+		int skaitliukas = KruskalMas.briaunuSkaitliukas;
+		return this.gautiBriaunas().get(skaitliukas).gautiY().gautiZyme();
+	}
+	
+	public Virsune gautiVirsuneX(){
+		int skaitliukas = KruskalMas.briaunuSkaitliukas;
+		return this.gautiBriaunas().get(skaitliukas).gautiX();
+	}
+	
+	public Virsune gautiVirsuneY(){
+		int skaitliukas = KruskalMas.briaunuSkaitliukas;
+		return this.gautiBriaunas().get(skaitliukas).gautiY();
+	}
+	
+	public int gautiVirsuniuSk(){
+		return virsunes.length;
+	}
 	public String toString(int indeksas){
 		return virsunes[indeksas].toString();
 	}
@@ -47,7 +75,7 @@ public class GrafasMas {
         v += "}";
 
         for (Briauna e :this.briaunos) {
-            briaunos += "{" + e.gautiNuoKur().gautiVarda() + ", " + e.gautiIkiKur().gautiVarda() + "}, ";
+            briaunos += "{" + e.gautiX().gautiVarda() + ", " + e.gautiY().gautiVarda() + "}, ";
         }
         briaunos += "}";
 

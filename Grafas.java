@@ -39,7 +39,7 @@ public class Grafas {
         virsunes += "}";
 
         for (Briauna e :this.briaunos) {
-            briaunos += "{" + e.gautiNuoKur().gautiVarda() + ", " + e.gautiIkiKur().gautiVarda() + "}, ";
+            briaunos += "{" + e.gautiX().gautiVarda() + ", " + e.gautiY().gautiVarda() + "}, ";
         }
         briaunos += "}";
 
