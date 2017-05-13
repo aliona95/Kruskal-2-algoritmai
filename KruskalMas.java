@@ -2,6 +2,7 @@
 import java.util.Collections;
 public class KruskalMas {
 	static int briaunuSkaitliukas = 0;
+	static boolean arPaimti = false;
     
     public static GrafasMas gautiMST(GrafasMas grafas) {
         GrafasMas karkasas = new GrafasMas();   
@@ -13,8 +14,10 @@ public class KruskalMas {
         
         // vykdome kol briaunu skaicius nebus vienetu mazesnis uz virsuniu skaiciu
         while (karkasas.gautiBriaunas().size() != grafas.gautiVirsunes().length - 1){
+        	arPaimti = false;
         	// x virsunes zyme, tai briaunos(x, y) pirmoji virsune
         	if (grafas.gautiZymeX() != grafas.gautiZymeY()){
+        		arPaimti = true;
         		
         		Briauna briauna;
         		briauna = grafas.gautiBriauna();

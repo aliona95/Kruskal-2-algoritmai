@@ -103,16 +103,17 @@ public class GrafasMas {
 		String virsuneX = this.gautiBriauna().gautiX().gautiVarda();
 		String virsuneY = this.gautiBriauna().gautiY().gautiVarda();
 		String briauna = virsuneX + virsuneY;
-		/*
-		for(int i = 0; i < virsunes.length; i++){
-        	v += Integer.toString(i + 1) + ", ";
-        }
-        */
+		String paimti = "ne";
+		
+		if(KruskalMas.arPaimti == true){
+			paimti = "taip";
+		}
+		
 		for(int i = 0; i < virsunes.length; i++){
         	zymes += virsunes[i].gautiZyme() + "     ";
         }
 		return "-------------------------------------------------------" + 
-        "\n   " + briauna + "               " + zymes + "\n";
+        "\n   " + briauna + "               " + zymes + " " + paimti +"\n";
 	}
 	
 	
