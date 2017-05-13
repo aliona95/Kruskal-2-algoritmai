@@ -1,22 +1,22 @@
 
 public class Briauna implements Comparable<Briauna> {
 	// briaunos galai
-    private Virsune nuoKur;  
-    private Virsune ikiKur;
+    private Virsune x;  
+    private Virsune y;
     private int svoris;
 
     public Briauna(Virsune nuoKur, Virsune ikiKur, int svoris) {
-        this.nuoKur = nuoKur;
-        this.ikiKur = ikiKur;
+        this.x = nuoKur;
+        this.y = ikiKur;
         this.svoris = svoris;
     }
 
-    public Virsune gautiNuoKur() {
-        return nuoKur;
+    public Virsune gautiX() {
+        return x;
     }
 
-    public Virsune gautiIkiKur() {
-        return ikiKur;
+    public Virsune gautiY() {
+        return y;
     }
 
     public int gautiSvori() {
@@ -29,6 +29,6 @@ public class Briauna implements Comparable<Briauna> {
     }
      
     public String toString(){
-    	return nuoKur.toString() + ikiKur.toString();
+    	return x.toString() + y.toString();
     }
 }
