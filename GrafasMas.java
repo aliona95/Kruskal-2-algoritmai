@@ -113,7 +113,8 @@ public class GrafasMas {
         	zymes += virsunes[i].gautiZyme() + "     ";
         }
 		return "-------------------------------------------------------" + 
-        "\n   " + briauna + "               " + zymes + " " + paimti +"\n";
+        "\n   " + briauna + "       " + this.gautiBriauna().gautiSvori() + "       " +
+		zymes + " " + paimti +"\n";
 	}
 	
 	
