@@ -22,10 +22,10 @@ public class Main {
         Edge edge24 = new Edge(vertex2, vertex4, 7);*/
         
         Briauna edge12 = new Briauna(vertex1, vertex2, 2);
-        Briauna edge23 = new Briauna(vertex2, vertex3, 4);
-        //Edge edge34 = new Edge(vertex3, vertex4, 8);
+        //Briauna edge23 = new Briauna(vertex2, vertex3, 4);
+        Briauna edge34 = new Briauna(vertex3, vertex4, 8);
         Briauna edge41 = new Briauna(vertex4, vertex1, 5);
-        Briauna edge13 = new Briauna(vertex1, vertex3, 3);
+        //Briauna edge13 = new Briauna(vertex1, vertex3, 3);
         Briauna edge24 = new Briauna(vertex2, vertex4, 7);
 
         ///
@@ -36,13 +36,20 @@ public class Main {
         
         
         graphMas.pridetiBriauna(edge12);
-        graphMas.pridetiBriauna(edge23);
-        //graphArr.addEdge(edge34);
+        //graphMas.pridetiBriauna(edge23);
+        graphMas.pridetiBriauna(edge34);
         graphMas.pridetiBriauna(edge41);
-        graphMas.pridetiBriauna(edge13);
+        //graphMas.pridetiBriauna(edge13);
         graphMas.pridetiBriauna(edge24);
         ///
         //System.out.println(graphArr.toString(1));
+        
+        System.out.println("PRADINIS GRAFAS: ");
+        System.out.println(graphMas);
+        System.out.println();
+        System.out.println(graphMas.lentelesAntraste());
+        System.out.println(graphMas.spausdintiInit());
+        
         GrafasMas res = KruskalMas.gautiMST(graphMas);
         
         
@@ -54,18 +61,18 @@ public class Main {
         grafas.pridetiVirsune(vertex4);
 
         grafas.pridetiBriauna(edge12);
-        grafas.pridetiBriauna(edge23);
+        //grafas.pridetiBriauna(edge23);
         //graph.addEdge(edge34);
         grafas.pridetiBriauna(edge41);
-        grafas.pridetiBriauna(edge13);
+        //grafas.pridetiBriauna(edge13);
         grafas.pridetiBriauna(edge24);
         //
 
         //Grafas karkasas = Kruskal.gautiMST(grafas);
 
-        System.out.println("Start: ");
-        System.out.println(graphMas);
-        System.out.println("Result: ");
+        
+        System.out.println("______________________________________________");
+        System.out.println("KARKASAS: ");
         System.out.println(res);
         //System.out.println(karkasas);
     }

@@ -44,6 +44,7 @@ public class KruskalMas {
         			grafas.gautiVirsuneX().uzsetintiZyme(grafas.gautiZymeY());
         		}
         	}
+        	System.out.println(grafas.spausdintiLentele());
         	briaunuSkaitliukas++;
         }
         return karkasas;
