@@ -1,0 +1,7 @@
+VIRSUNES
+1 2 3 4
+BRIAUNOS IR JU SVORIAI
+(1, 2, 2)
+(3, 4, 8)
+(4, 1, 5)
+(2, 4, 7)

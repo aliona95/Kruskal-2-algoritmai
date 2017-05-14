@@ -5,7 +5,7 @@ import java.util.List;
 public class Grafas {
     private List<Virsune> virsunes = new LinkedList<Virsune>();
     private List<Briauna> briaunos = new LinkedList<Briauna>();
-
+    static int atstumas = 0;
     
     public void pridetiVirsune(Virsune virsune) {
         virsunes.add(virsune);
@@ -25,24 +25,22 @@ public class Grafas {
     }
     
     public List<Briauna> gautiBriaunas() {
-        return briaunos;
+    	return briaunos;
     }
 
-    @Override
     public String toString() {
-        String virsunes = "Virsunes: {";
-        String briaunos = "Briaunos: {";
+        String virsunes = "Virsunes: ";
+        String briaunos = "MST briaunos: ";
 
-        for (Virsune virsune :this.virsunes) {
-            virsunes += virsune.gautiVarda() + ", ";
+        for (Virsune virsune : this.virsunes) {
+            virsunes += virsune.gautiVarda() + " ";
         }
-        virsunes += "}";
 
-        for (Briauna e :this.briaunos) {
-            briaunos += "{" + e.gautiX().gautiVarda() + ", " + e.gautiY().gautiVarda() + "}, ";
+        for (Briauna briauna : this.briaunos) {
+            briaunos += "(" + briauna.gautiX().gautiVarda() + ", " + briauna.gautiY().gautiVarda() + ")  ";
+            atstumas += briauna.gautiSvori();
         }
-        briaunos += "}";
-
-        return virsunes + "\n" + briaunos;
+        
+        return virsunes + "\n" + briaunos + "\nAtstumas = " + atstumas;
     }
 }

@@ -4,7 +4,7 @@ import java.util.List;
 public class GrafasMas {
 	private Virsune[] virsunes = new Virsune[Main.n];
 	private List<Briauna> briaunos = new ArrayList<Briauna>();
-	
+	static int atstumas = 0;
 	
 	public void pridetiVirsune(int indeksas, Virsune virsune){
 		virsunes[indeksas] = virsune;
@@ -28,6 +28,9 @@ public class GrafasMas {
 		return virsunes;
 	}
 	
+	public Virsune gautiVirsune(int indeksas){
+		return virsunes[indeksas];
+	}
 	public List<Briauna> gautiBriaunas() {
         return briaunos;
     }
@@ -67,14 +70,14 @@ public class GrafasMas {
 	@Override
     public String toString() {
         String v = "Virsunes: ";
-        String b = "Briaunos: ";
+        String b = "MST briaunos: ";
 
         for(int i = 0; i < virsunes.length; i++){
-        	v += Integer.toString(i + 1) + ", ";
+        	v += Integer.toString(i + 1) + "  ";
         }
         
         for (Briauna briauna: briaunos) {
-            b += "(" + briauna.gautiX().gautiVarda() + ", " + briauna.gautiY().gautiVarda() + "), ";
+            b += "(" + briauna.gautiX().gautiVarda() + ", " + briauna.gautiY().gautiVarda() + ")  ";
         }
         
         return v + "\n" + b;
@@ -98,22 +101,22 @@ public class GrafasMas {
 	}
 	
 	public String spausdintiLentele(){
-		//String v = "Virsunes: ";
 		String zymes = "";
 		String virsuneX = this.gautiBriauna().gautiX().gautiVarda();
 		String virsuneY = this.gautiBriauna().gautiY().gautiVarda();
-		String briauna = virsuneX + virsuneY;
+		String briauna = "(" + virsuneX + ", " + virsuneY + ")";
 		String paimti = "ne";
-		
+	
 		if(KruskalMas.arPaimti == true){
 			paimti = "taip";
+			atstumas += this.gautiBriauna().gautiSvori();
 		}
 		
 		for(int i = 0; i < virsunes.length; i++){
         	zymes += virsunes[i].gautiZyme() + "     ";
         }
 		return "-------------------------------------------------------" + 
-        "\n   " + briauna + "       " + this.gautiBriauna().gautiSvori() + "       " +
+        "\n " + briauna + "     " + this.gautiBriauna().gautiSvori() + "       " +
 		zymes + " " + paimti +"\n";
 	}
 	
