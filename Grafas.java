@@ -42,7 +42,13 @@ public class Grafas {
         }
         return virsunes + "\n" + briaunos + "\nMST svoris = " + atstumas;
     }
-    
+    public int gautiAtstuma(){
+    	int ats = 0;
+    	for (Briauna briauna : this.briaunos) {
+            ats += briauna.gautiSvori();
+        }
+    	return ats;
+    }
     public String toString1() {
         String v = "Virsunes: ";
         String b = "MST briaunos: ";

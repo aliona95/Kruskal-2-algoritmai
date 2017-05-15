@@ -98,6 +98,13 @@ public class GrafasMas {
         return virsunes + "\n" + briaunos + "\nMST svoris = " + atstumas;
     }
 	
+	public int gautiAtstuma(){
+		int ats = 0;
+		for (Briauna briauna : this.briaunos) {
+            ats += briauna.gautiSvori();
+        }
+		return ats;
+	}
 	public String lentelesAntraste(){
 		String v = "";
 		for(int i = 0; i < virsunes.length; i++){
