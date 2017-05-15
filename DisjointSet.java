@@ -1,72 +1,47 @@
 import java.util.HashMap;
 
-public class DisjointSet<T> {
+public class DisjointSet<Type> {
 	
-	private static class InnerVirsune<T> {
+	private static class Mazgas<T> {
 		int rangas;
 		T tevas;
 
-		InnerVirsune(T tevas, int rangas) {
+		Mazgas(T tevas, int rangas) {
 			this.tevas = tevas;
 			this.rangas = rangas;
 		}
 	}
 
-	private final HashMap<T, InnerVirsune<T>> objectsToNodes = new HashMap<>();
+	private final HashMap<Type, Mazgas<Type>> mazgai = new HashMap<>();
 	
 	// makeSet funkcija visoms virsunems priskiria save kaip teva (rodykle i save).
-	public void makeSet(T o) {
-		objectsToNodes.put(o, new InnerVirsune<>(o, 0));   // 0 yra rangas
+	public void makeSet(Type obj) {
+		mazgai.put(obj, new Mazgas<>(obj, 0));   // 0 - pradinis rangas
 	}
 	
-	// findSet(virsuneX) - f-ja surandanti kuriai aibei priklauso virsuneX
-	public T findSet(Object o) {
-		DisjointSet.InnerVirsune<T> node = objectsToNodes.get(o);
-		if (node == null) {
-			return null;
-		}
-		if (o != node.tevas) {
-			//System.out.println("REKURSIJA");
+	// findSet(virsuneX) f-ja suranda kuriai aibei priklauso virsuneX
+	public Type findSet(Object obj) {
+		DisjointSet.Mazgas<Type> node = mazgai.get(obj);
+	
+		if (obj != node.tevas) {
 			node.tevas = findSet(node.tevas);
 		}
-		//System.out.println("FIND SET PARENT = " + node.tevas.toString());
 		return node.tevas;
 	}
 	
-	public void union(T virsuneX, T virsuneY) {
-		// findSet(virsuneX) - f-ja surandanti kuriai aibei priklauso virsuneX
-		//T aibeVirsunesX = findSet(virsuneX);
-		//T aibeVirsunesY = findSet(virsuneY);
-		// virsunes negali buti sujungtos briauna, jei jos yra is tos pacios aibes
-		/*if (findSet(virsuneX) == null || findSet(virsuneY) == null || 
-			findSet(virsuneX) == findSet(virsuneY)) {
-			System.out.println("AAA");
-			return;
-		}*/
-		/*if (aibeVirsunesX == null || aibeVirsunesY == null || aibeVirsunesX == aibeVirsunesY) {
-			return;
-		}*/
-		InnerVirsune<T> mazgasX = objectsToNodes.get(/*aibeVirsunesX*/findSet(virsuneX));
-		InnerVirsune<T> mazgasY = objectsToNodes.get(/*aibeVirsunesY*/findSet(virsuneX));
-	    
+	public void union(Type virsuneX, Type virsuneY) {
+		Mazgas<Type> mazgasX = mazgai.get(findSet(virsuneX));
+		Mazgas<Type> mazgasY = mazgai.get(findSet(virsuneY));
+		
 		// tevu tampa tas tevas, kurio rangas didesnis
-		/*if (mazgasX.rangas > mazgasY.rangas) {
+		if (mazgasX.rangas > mazgasY.rangas){
 			mazgasY.tevas = virsuneX;
-		} else {
+		} else{
 			mazgasX.tevas = virsuneY;
 			// jei aibiu rangai sutampa, tada rangas padidinamas vienetu
 			if (mazgasX.rangas == mazgasY.rangas) {
 				mazgasY.rangas++;
 			}
-		}
-		*/
-		if (mazgasX.rangas <= mazgasY.rangas){
-			if (mazgasX.rangas == mazgasY.rangas) {
-				mazgasY.rangas++;
-			}
-			mazgasX.tevas = virsuneY;
-		} else{
-			mazgasY.tevas = virsuneX;
 		}
 	}
 }

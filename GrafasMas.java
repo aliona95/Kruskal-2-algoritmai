@@ -83,6 +83,21 @@ public class GrafasMas {
         return v + "\n" + b;
     }
 	
+	public String toString1() {
+        String virsunes = "Virsunes: ";
+        String briaunos = "MST briaunos: ";
+
+        for (Virsune virsune : this.virsunes) {
+            virsunes += virsune.gautiVarda() + " ";
+        }
+
+        for (Briauna briauna : this.briaunos) {
+            briaunos += "(" + briauna.gautiX().gautiVarda() + ", " + briauna.gautiY().gautiVarda() + ")  ";
+            atstumas += briauna.gautiSvori();
+        }
+        return virsunes + "\n" + briaunos + "\nMST svoris = " + atstumas;
+    }
+	
 	public String lentelesAntraste(){
 		String v = "";
 		for(int i = 0; i < virsunes.length; i++){

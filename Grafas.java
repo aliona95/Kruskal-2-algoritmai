@@ -40,7 +40,22 @@ public class Grafas {
             briaunos += "(" + briauna.gautiX().gautiVarda() + ", " + briauna.gautiY().gautiVarda() + ")  ";
             atstumas += briauna.gautiSvori();
         }
-        
-        return virsunes + "\n" + briaunos + "\nAtstumas = " + atstumas;
+        return virsunes + "\n" + briaunos + "\nMST svoris = " + atstumas;
     }
+    
+    public String toString1() {
+        String v = "Virsunes: ";
+        String b = "MST briaunos: ";
+
+        for(int i = 0; i < virsunes.size(); i++){
+        	v += Integer.toString(i + 1) + "  ";
+        }
+        
+        for (Briauna briauna: briaunos) {
+            b += "(" + briauna.gautiX().gautiVarda() + ", " + briauna.gautiY().gautiVarda() + ")  ";
+        }
+        
+        return v + "\n" + b;
+    }
+    
 }

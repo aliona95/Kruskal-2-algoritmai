@@ -12,6 +12,7 @@ public class Kruskal {
         // kiekvienai virsunei uzsetiname teva (ja pacia)
         for (Virsune virsune: grafas.gautiVirsunes()) {
             vertexDisjointSet.makeSet(virsune);
+            
         }
         
         // surikiuojame briaunas ju svoriu didejimo tvarka
