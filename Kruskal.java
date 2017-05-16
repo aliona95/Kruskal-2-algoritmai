@@ -7,11 +7,11 @@ public class Kruskal {
         Grafas karkasas = new Grafas();
         karkasas.uzsetintiVirsunes(grafas.gautiVirsunes());
     
-        DisjointSet<Virsune> vertexDisjointSet = new DisjointSet<Virsune>();
+        DisjointSet<Virsune> miskas = new DisjointSet<Virsune>();
         
-        // kiekvienai virsunei uzsetiname teva (ja pacia)
+        // kiekvienai virsunei priskiriame teva (ja pacia)
         for (Virsune virsune: grafas.gautiVirsunes()) {
-            vertexDisjointSet.makeSet(virsune);
+            miskas.makeSet(virsune);
             
         }
         
@@ -20,13 +20,13 @@ public class Kruskal {
 
         for (Briauna briauna: grafas.gautiBriaunas()) {
         	// tikriname ar briaunos virsunes yra skirtinguose setuose
-            if (vertexDisjointSet.findSet(briauna.gautiX()) != 
-            	vertexDisjointSet.findSet(briauna.gautiY())) {
+            if (miskas.findSet(briauna.gautiX()) != 
+            	miskas.findSet(briauna.gautiY())) {
             	
                 karkasas.pridetiBriauna(briauna);
                
                 // sujungiame setus ir uzsetiname setui teva, kurio rangas didesnis
-                vertexDisjointSet.union(briauna.gautiX(), briauna.gautiY());
+                miskas.union(briauna.gautiX(), briauna.gautiY());
             }
         }
         return karkasas;

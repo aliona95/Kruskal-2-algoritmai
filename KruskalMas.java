@@ -29,18 +29,28 @@ public class KruskalMas {
         			
         			// pereiname per visas virsunes ir priskiriame naujas zymes 
         			for (int i = 0; i < grafas.gautiVirsuniuSk(); i++){
-        				
         				// keiciame visas senas sutapusias zymes i naujai priskirtas
         				if (zymesSutapoSuY(grafas, i)){
-        					grafas.gautiVirsunes()[i].uzsetintiZyme(grafas.gautiZymeX());
+        					int zyme = Integer.valueOf(grafas.gautiVirsunes()[i].gautiZyme());
+        					for (int j = 0; j < grafas.gautiVirsuniuSk(); j++){
+        						if (Integer.valueOf(grafas.gautiVirsunes()[j].gautiZyme()) == zyme){
+        							grafas.gautiVirsunes()[j].uzsetintiZyme(grafas.gautiZymeX());
+        						}
+        					}
+        					//grafas.gautiVirsunes()[i].uzsetintiZyme(grafas.gautiZymeX());
         				}
         			}
         			grafas.gautiVirsuneY().uzsetintiZyme(grafas.gautiZymeX());
         		}else{
         			for (int i = 0; i < grafas.gautiVirsuniuSk(); i++){
         				if (zymesSutapoSuX(grafas, i)){
-        					
-        					grafas.gautiVirsunes()[i].uzsetintiZyme(grafas.gautiZymeY());
+        					int zyme = Integer.valueOf(grafas.gautiVirsunes()[i].gautiZyme());
+        					for (int j = 0; j < grafas.gautiVirsuniuSk(); j++){
+        						if (Integer.valueOf(grafas.gautiVirsunes()[j].gautiZyme()) == zyme){
+        							grafas.gautiVirsunes()[j].uzsetintiZyme(grafas.gautiZymeX());
+        						}
+        					}
+        					//grafas.gautiVirsunes()[i].uzsetintiZyme(grafas.gautiZymeY());
         				}
         			}
         			

@@ -127,15 +127,23 @@ public class Main {
 		       /* System.out.println("PRADINIS GRAFAS: ");
 		        System.out.println(grafasMas);
 		        System.out.println();*/
-		        System.out.println("______________________________________________");
-		        System.out.println("ALGORITMAS SU VIRSUNIU ZYMEMIS: ");
-		        System.out.println();
 		        if(args.length == 1){ // be testo
+		        	System.out.println("PRADINIS GRAFAS: ");
+			        System.out.println(grafasMas);
+			        System.out.println();
+			        System.out.println("______________________________________________");
+			        System.out.println("ALGORITMAS SU VIRSUNIU ZYMEMIS: ");
+			        System.out.println();
+			        argsNum = args.length;
 			        System.out.println(grafasMas.lentelesAntraste());
 			        System.out.println(grafasMas.spausdintiInit());
 			        GrafasMas karkasas1 = KruskalMas.gautiMST(grafasMas);
-			        System.out.println(karkasas1);
+			        System.out.println("Vykdymo laikas: " + (System.currentTimeMillis() - bothTime) + " ms");
+			        System.out.println("MST svoris = " + karkasas1.gautiAtstuma());
 		        }else{
+		        	System.out.println("______________________________________________");
+			        System.out.println("ALGORITMAS SU VIRSUNIU ZYMEMIS: ");
+			        System.out.println();
 		        	argsNum = args.length;
 		        	bothTime = System.currentTimeMillis();
 		        	GrafasMas karkasas1 = KruskalMas.gautiMST(grafasMas);
@@ -147,7 +155,19 @@ public class Main {
 		        System.out.println();
 	        // b punktas
 			}   
-			if(args[0].equals("2") || args[0].equals("3")){
+			if(args[0].equals("2")){
+				System.out.println("PRADINIS GRAFAS: ");
+		        System.out.println(grafas.toString1());
+		        System.out.println();
+		        System.out.println("______________________________________________");
+		        System.out.println("ALGORITMAS SU SARASAIS: ");
+		        System.out.println();
+		        
+		        bothTime = System.currentTimeMillis();
+		        Grafas karkasas2 = Kruskal.gautiMST(grafas);
+		        System.out.println(karkasas2);
+		        System.out.println("Vykdymo laikas: " + (System.currentTimeMillis() - bothTime) + " ms");
+			}else if(args[0].equals("3")){
 				/*System.out.println("PRADINIS GRAFAS: ");
 		        System.out.println(grafas.toString1());
 		        System.out.println();*/
