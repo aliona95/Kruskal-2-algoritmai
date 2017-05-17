@@ -36,27 +36,27 @@ public class GrafasMas {
     }
 	
 	public Briauna gautiBriauna(){
-		int skaitliukas = KruskalMas.briaunuSkaitliukas;
+		int skaitliukas = KruskalMas.briaunuSk;
 		return this.gautiBriaunas().get(skaitliukas); 
 	}
 	
 	public String gautiZymeX(){
-		int skaitliukas = KruskalMas.briaunuSkaitliukas;
+		int skaitliukas = KruskalMas.briaunuSk;
 		return this.gautiBriaunas().get(skaitliukas).gautiX().gautiZyme();
 	}
 	
 	public String gautiZymeY(){
-		int skaitliukas = KruskalMas.briaunuSkaitliukas;
+		int skaitliukas = KruskalMas.briaunuSk;
 		return this.gautiBriaunas().get(skaitliukas).gautiY().gautiZyme();
 	}
 	
 	public Virsune gautiVirsuneX(){
-		int skaitliukas = KruskalMas.briaunuSkaitliukas;
+		int skaitliukas = KruskalMas.briaunuSk;
 		return this.gautiBriaunas().get(skaitliukas).gautiX();
 	}
 	
 	public Virsune gautiVirsuneY(){
-		int skaitliukas = KruskalMas.briaunuSkaitliukas;
+		int skaitliukas = KruskalMas.briaunuSk;
 		return this.gautiBriaunas().get(skaitliukas).gautiY();
 	}
 	
@@ -77,7 +77,7 @@ public class GrafasMas {
         }
         
         for (Briauna briauna: briaunos) {
-            b += "(" + briauna.gautiX().gautiVarda() + ", " + briauna.gautiY().gautiVarda() + ")  ";
+            b += briauna.gautiSvori() + " (" + briauna.gautiX().gautiVarda() + ", " + briauna.gautiY().gautiVarda() + ")  ";
         }
         
         return v + "\n" + b;

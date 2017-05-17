@@ -1,11 +1,57 @@
 
 import java.util.Collections;
 public class KruskalMas {
-	static int briaunuSkaitliukas = 0;
+	static int briaunuSk = 0;
 	static boolean arPaimti = false;
+	static int mstBriaunuSk = 0;
 	
     public static GrafasMas gautiMST(GrafasMas grafas) {
-    	GrafasMas karkasas = new GrafasMas();   
+    	GrafasMas karkasas = new GrafasMas();
+    	int n = grafas.gautiVirsunes().length;
+    	int[] zymes = new int[n];
+    	
+    	for (int i = 0; i < n; i++){
+    		zymes[i] = i + 1;   // zymes = {1, 2, ..., n}
+    	}
+    	karkasas.uzsetintiVirsunes(grafas.gautiVirsunes());   //?????
+    	
+    	// surikiuojame briaunas ju svoriu didejimo tvarka
+        Collections.sort(grafas.gautiBriaunas());
+        KruskalMas.briaunuSk = 0;
+        while(mstBriaunuSk < n - 1){
+        	arPaimti = false;
+        	int zymeX = zymes[Integer.valueOf(grafas.gautiBriauna().gautiX().gautiVarda()) - 1];
+        	int zymeY = zymes[Integer.valueOf(grafas.gautiBriauna().gautiY().gautiVarda()) - 1];
+        	
+        	if (zymeX != zymeY){
+        		arPaimti = true;
+        		mstBriaunuSk++;
+        		karkasas.pridetiBriauna(grafas.gautiBriauna());
+	        	if (zymeX < zymeY){
+	        		zymes[zymeY - 1] = zymes[zymeX - 1];
+	        		for (int i = 0; i < n; i++){
+	        			if (zymes[i] == zymeY){
+	        				zymes[i] = zymeX;
+	        			}
+	        		}
+	        	}else{
+	        		zymes[zymeX - 1] = zymes[zymeY - 1];
+	        		for(int i = 0; i < n; i++){
+	        			if (zymes[i] == zymeX){
+	        				zymes[i] = zymeY;
+	        			}
+	        		}
+	        	}
+        	}
+        	//System.out.println(karkasas.toString());
+        	KruskalMas.briaunuSk++;
+        }
+    	return karkasas;
+    }	
+    	
+    	
+    	
+    	/*GrafasMas karkasas = new GrafasMas();   
     	int n = grafas.gautiVirsunes().length;
        
         karkasas.uzsetintiVirsunes(grafas.gautiVirsunes());
@@ -59,8 +105,9 @@ public class KruskalMas {
         	if(Main.argsNum == 1){
         		System.out.println(grafas.spausdintiLentele());
         	}
-        	briaunuSkaitliukas++;
+        	briaunuSk++;
         }
+        briaunuSk = 0;   // !!!!!!!!!!!!!!!!!!!!
         return karkasas;
     }
     
@@ -77,5 +124,5 @@ public class KruskalMas {
     	return Integer.valueOf(grafas.gautiZymeX()) == 
     		   Integer.valueOf(grafas.gautiVirsunes()[i].gautiZyme());
     }
-    
+    */
 }

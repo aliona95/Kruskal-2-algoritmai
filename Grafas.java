@@ -37,7 +37,7 @@ public class Grafas {
         }
 
         for (Briauna briauna : this.briaunos) {
-            briaunos += "(" + briauna.gautiX().gautiVarda() + ", " + briauna.gautiY().gautiVarda() + ")  ";
+            briaunos += briauna.gautiSvori() +" (" + briauna.gautiX().gautiVarda() + ", " + briauna.gautiY().gautiVarda() + ")  ";
             atstumas += briauna.gautiSvori();
             //System.out.println(briauna.gautiSvori());
         }
