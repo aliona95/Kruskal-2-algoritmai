@@ -20,12 +20,12 @@ public class Briauna implements Comparable<Briauna> {
     }
 
     public int gautiSvori() {
-        return svoris;
+        return this.svoris;
     }
 
     @Override
     public int compareTo(Briauna briauna) {
-        return this.svoris - briauna.gautiSvori();
+    	return this.svoris - briauna.gautiSvori();
     }
      
     public String toString(){

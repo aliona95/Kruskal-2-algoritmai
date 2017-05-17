@@ -2,11 +2,11 @@ import java.util.HashMap;
 
 public class DisjointSet<Type> {
 	
-	private static class Mazgas<T> {
+	private static class Mazgas<Type> {
 		int rangas;
-		T tevas;
+		Type tevas;
 
-		Mazgas(T tevas, int rangas) {
+		Mazgas(Type tevas, int rangas) {
 			this.tevas = tevas;
 			this.rangas = rangas;
 		}
@@ -22,7 +22,7 @@ public class DisjointSet<Type> {
 	// findSet(virsuneX) f-ja suranda kuriai aibei priklauso virsuneX
 	public Type findSet(Object obj) {
 		DisjointSet.Mazgas<Type> node = mazgai.get(obj);
-	
+		
 		if (obj != node.tevas) {
 			node.tevas = findSet(node.tevas);
 		}
@@ -30,17 +30,17 @@ public class DisjointSet<Type> {
 	}
 	
 	public void union(Type virsuneX, Type virsuneY) {
-		Mazgas<Type> mazgasX = mazgai.get(findSet(virsuneX));
-		Mazgas<Type> mazgasY = mazgai.get(findSet(virsuneY));
+		Mazgas<Type> saknisX = mazgai.get(findSet(virsuneX));
+		Mazgas<Type> saknisY = mazgai.get(findSet(virsuneY));
 		
 		// tevu tampa tas tevas, kurio rangas didesnis
-		if (mazgasX.rangas > mazgasY.rangas){
-			mazgasY.tevas = virsuneX;
+		if (saknisX.rangas > saknisY.rangas){
+			saknisY.tevas = virsuneX;
 		} else{
-			mazgasX.tevas = virsuneY;
+			saknisX.tevas = virsuneY;
 			// jei aibiu rangai sutampa, tada rangas padidinamas vienetu
-			if (mazgasX.rangas == mazgasY.rangas) {
-				mazgasY.rangas++;
+			if (saknisX.rangas == saknisY.rangas) {
+				saknisY.rangas++;
 			}
 		}
 	}

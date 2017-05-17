@@ -39,8 +39,10 @@ public class Grafas {
         for (Briauna briauna : this.briaunos) {
             briaunos += "(" + briauna.gautiX().gautiVarda() + ", " + briauna.gautiY().gautiVarda() + ")  ";
             atstumas += briauna.gautiSvori();
+            //System.out.println(briauna.gautiSvori());
         }
-        return virsunes + "\n" + briaunos + "\nMST svoris = " + atstumas;
+        //return virsunes + "\n" + briaunos + "\nMST svoris = " + atstumas;
+        return virsunes + "\n" + briaunos + "\n";
     }
     public int gautiAtstuma(){
     	int ats = 0;

@@ -3,17 +3,18 @@ import java.util.Collections;
 public class KruskalMas {
 	static int briaunuSkaitliukas = 0;
 	static boolean arPaimti = false;
-    
+	
     public static GrafasMas gautiMST(GrafasMas grafas) {
-        GrafasMas karkasas = new GrafasMas();   
-        
+    	GrafasMas karkasas = new GrafasMas();   
+    	int n = grafas.gautiVirsunes().length;
+       
         karkasas.uzsetintiVirsunes(grafas.gautiVirsunes());
        
         // surikiuojame briaunas ju svoriu didejimo tvarka
         Collections.sort(grafas.gautiBriaunas());
         
         // vykdome kol briaunu skaicius nebus vienetu mazesnis uz virsuniu skaiciu
-        while (karkasas.gautiBriaunas().size() != grafas.gautiVirsunes().length - 1){
+        while (karkasas.gautiBriaunas().size() != n - 1){
         	arPaimti = false;
         	// x virsunes zyme, tai briaunos(x, y) pirmoji virsune
         	if (grafas.gautiZymeX() != grafas.gautiZymeY()){
@@ -28,29 +29,27 @@ public class KruskalMas {
         		if (xZymeMazesne(grafas)){
         			
         			// pereiname per visas virsunes ir priskiriame naujas zymes 
-        			for (int i = 0; i < grafas.gautiVirsuniuSk(); i++){
+        			for (int i = 0; i < n; i++){
         				// keiciame visas senas sutapusias zymes i naujai priskirtas
         				if (zymesSutapoSuY(grafas, i)){
         					int zyme = Integer.valueOf(grafas.gautiVirsunes()[i].gautiZyme());
-        					for (int j = 0; j < grafas.gautiVirsuniuSk(); j++){
+        					for (int j = 0; j < n; j++){
         						if (Integer.valueOf(grafas.gautiVirsunes()[j].gautiZyme()) == zyme){
         							grafas.gautiVirsunes()[j].uzsetintiZyme(grafas.gautiZymeX());
         						}
         					}
-        					//grafas.gautiVirsunes()[i].uzsetintiZyme(grafas.gautiZymeX());
         				}
         			}
         			grafas.gautiVirsuneY().uzsetintiZyme(grafas.gautiZymeX());
         		}else{
-        			for (int i = 0; i < grafas.gautiVirsuniuSk(); i++){
+        			for (int i = 0; i < n; i++){
         				if (zymesSutapoSuX(grafas, i)){
         					int zyme = Integer.valueOf(grafas.gautiVirsunes()[i].gautiZyme());
-        					for (int j = 0; j < grafas.gautiVirsuniuSk(); j++){
+        					for (int j = 0; j < n; j++){
         						if (Integer.valueOf(grafas.gautiVirsunes()[j].gautiZyme()) == zyme){
         							grafas.gautiVirsunes()[j].uzsetintiZyme(grafas.gautiZymeX());
         						}
         					}
-        					//grafas.gautiVirsunes()[i].uzsetintiZyme(grafas.gautiZymeY());
         				}
         			}
         			
